@@ -474,3 +474,50 @@ echo '<select>';
         $a--;
     }
 echo '</select>';
+
+
+ echo '<br>';
+//-------------------
+// La boucle do while :
+// la boucle do while a la particularité de s'exécuter au moins une fois , puis tant que la condition de fin est vraie.
+
+$j = 0; // valeur de départ de la boucle
+
+do {
+    echo 'Je fais un tour de boucle <br>';
+    $j++;
+}while($j > 10); // La condition revoie false tout de suite, pourtant la boucle à bien touné une fois. Attention au ";" aprés le while.
+
+ echo '<br>';
+
+//----------------
+// La boucle for :
+// La boucle for est une autre syntaxe de la boucle while.
+
+for ($i = 0; $i < 3; $i++){ // on trouve dans les () de la for : La valeur de départ; La condition d'entrée dans la boucle; La variation de $i (incrémentation, décrémentation...)
+    echo $i . '------';
+}
+
+
+ echo '<br>';
+
+for ($l = 0; $l < 15; $l+=5){ // on trouve dans les () de la for : La valeur de départ; La condition d'entrée dans la boucle; La variation de $i (incrémentation, décrémentation...)
+    echo $l . '------';
+}
+// Exercice : vous affichez les mois de 1 à 12 à l'aide d'une boucle for dans le menu
+?>
+<form>
+<label>Mois de naisance </label>
+
+    <select>
+<?php
+        for($mois = 1; $mois <= 12; $mois++){
+            echo '<option>' . $mois . '</option>';
+        }
+?>
+    </select>
+
+    <input type="submit">
+</form>
+
+<?php
