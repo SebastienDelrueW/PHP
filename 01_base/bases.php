@@ -3,23 +3,20 @@
         border-top: 1px solid navy;
         border-bottom: 1px solid navy;
         color: navy;
-        
     }
 
-    a{
+    a {
         color:blue;
        
     }
 
-    b{
+    b {
         color:white
     }
-    span{
-        color: red;
-        
-    }
- 
 
+    span {
+        color: red;   
+    }
 </style>
 
 <?php 
@@ -497,7 +494,6 @@ do {
 for ($i = 0; $i < 3; $i++){ // on trouve dans les () de la for : La valeur de départ; La condition d'entrée dans la boucle; La variation de $i (incrémentation, décrémentation...)
     echo $i . '------';
 }
-
 
  echo '<br>';
 
