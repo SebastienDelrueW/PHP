@@ -17,6 +17,32 @@
     span {
         color: red;   
     }
+
+     /* Exercice */
+
+    td{
+        border: 1px solid grey;
+    }
+    table {
+        border-collapse: collapse;
+    }
+
+    h3{
+        background : lightgrey;
+        border : 1px solid grey;
+        width : 105px;
+        padding : 3px;
+        margin-left :3px;
+
+    }
+
+    p{
+        background : lightgrey;
+        border : 1px solid grey;
+        width : 105px;
+        padding : 3px;
+        margin-left :3px;
+    }
 </style>
 
 <?php 
@@ -517,3 +543,207 @@ for ($l = 0; $l < 15; $l+=5){ // on trouve dans les () de la for : La valeur de 
 </form>
 
 <?php
+
+// Exercice :
+// - faire une boucle for qui affiche 0 à 9 sur la même ligne.
+// - Puis vous compléter la boucle précédente , pour mettre les chiffres dans une table HTML. Vous y mettrez une bordure en CSS.
+
+/* for ($i = 0; $i < 10; $i++){ // on trouve dans les () de la for : La valeur de départ; La condition d'entrée dans la boucle; La variation de $i (incrémentation, décrémentation...)
+    echo $i . '';
+} */
+
+// correction 1 HTML et PHP
+?>
+
+<table>
+    <tr>
+        
+<?php
+    for ($i = 0; $i < 10; $i++){ 
+      /*   echo '<td>';
+        echo $i . '';
+        echo '<td>'; */
+        echo '<td>' . $i . '</td>';
+}  
+?> 
+    </tr>
+</table>
+
+<?php
+// correction 2 PHP //
+
+echo '<table>';
+    echo '<tr>';
+        for ($i = 0; $i < 10; $i++){ 
+            echo '<td>' . $i . '</td>';
+        }
+    echo '</tr>';
+echo '</table>';
+
+
+//---------------------------------------
+echo '<h2> Les tableaux (array) </h2>';
+//---------------------------------------
+// Un tableau, appelé array en anglais, est une variable améliorée dans laquelle on stocke une multitude de valeurs. Ces valeurs peuvent être de n'importe quel type. Elles possèdent un indice dont la numérotation commence à 0.
+
+// Déclarer un array (méthode 1) :
+$liste = array('Grégoire','Nathalie','Emilie','François','Georges'); // Les valeurs sont séparées par une virgule.
+
+// echo $liste; // erreur de type "Array to string conversion" car on ne peut pas afficher directement un tableau.
+
+echo '<pre>';
+    var_dump($liste); // affiche  le contenu du tableau avec les types
+echo '</pre>';
+
+echo '<pre>';
+        print_r($liste); // affiche  le contenu du tableau avec les types
+echo '</pre>'; // <pre> est une balise HTML qui permet de formater le texte
+
+// Pour notre besoin nous créons notre fonction personnelle d'affichage 
+function debug($var){
+    echo '<pre>';
+        print_r($var);
+    echo '</pre>';
+}
+
+debug($liste);
+
+// Autre façon de déclarer un array (méthode 2) :
+$tab = ['France','Italie','Espagne', 'Portugal'];
+// Indices  0        1         2         3
+
+echo $tab[1] . '<br>'; // Pour afficher une valeur du tableau , on écrit son indice dans une paire de crochets après le nom du tableau. Ici on affiche Italie.
+
+// Ajouter une valeur à la fin d'un tableau :
+$tab[] ='Suisse'; // Les crochets vides signifient qu'on ajoute à la fin du tableau $tab.
+
+debug($tab); // pou vérifier que la valeur 'Suisse" est présente.
+
+//---------------
+// Les tableaux associatifs :
+// Dans un tableau associatif nous pouvons choisir le nom des indices.
+$couleur = array(
+    'b' => 'bleu',
+    'r' => 'rouge',
+    'v' => 'vert'
+);
+
+// Pour afficher une valeur de notre tableau associatif :
+echo 'La première couleur du tableau est ' . $couleur['b'] . '.<br>';
+echo "La première couleur du tableau est $couleur[b] <br>"; // quand un tableau associatif est écrit dans des guillemets ou des quotes, il perd les quotes autour de son indice.
+
+// Compter le nombre d'élément contenus dans un tableau :
+echo 'Nombre de valeurs dans le tableau : ' . count($couleur) . '<br>'; // affiche 3
+echo 'Nombre de valeurs dans le tableau : ' . sizeof($couleur) . '<br>'; // affiche 3 aussi car sizeof() fait la même chose que count() dont il est un alias.
+/* 
+debug(count($couleur)); vérification */
+
+//---------------------------------------
+echo '<h2> La boucle foreach </h2>';
+//---------------------------------------
+// foreach est moyen simple de passer en revue un tableau de façon automatique. Cette boucle ne fonctionne que sur les tableaux et les objets.
+
+debug($tab); // pour voir le tableau à parcourir
+
+foreach($tab as $pays){ // on parcourt le tableau $tab par ses valeurs. La variable $pays prend les valeurs du tableau successivement à chaque tour de boucle. Le mot clé "as" fait partie de la syntaxe, il est obligatoire.
+    echo $pays . '<br>';
+}
+
+echo '<hr>';
+// La boucle foreach pour parcourir les INDICES et les VALEURS :
+foreach($tab as $indice => $pays){ // quand il y a deux variables après "as", celle de gauche parcourt les indices, et celle de droite parcourt les valeurs (quelque soit leur nom).
+    echo  'Indice ' . $indice . ' correspond à ' . $pays . '<br>';
+}
+
+// Exercice : vous déclarez un tableau associatif avec les indices prenom, nom, email, telephone et vous y mettez les valeurs correspondant à un seul contact. Puis avec une boucle foreach, vous afichez les valeurs dans des <p>, sauf le prenom qui doit être dans un <h3>.
+
+/*  $james = array(
+    'j' => 'Bonjour',
+    'n' => 'Bond',
+    'e' => 'jb@londres.fr',
+    't' => '06 05 88 88 88'
+); 
+
+debug($james);
+
+foreach($james as $indice => $info){
+    echo '<h3> Bonjour </h3>' . '<p> Bond </p>' . '<p> jb@londres.fr </p>' . '<p> 06 50 80 45 78 </p>';
+} */
+
+// Correction
+
+$contact = array(
+    'prenom' => 'John',
+    'nom' => 'Doe',
+    'email' => 'jdoe@gmail.fr',
+    'telephone' => '06 05 88 88 88'
+);
+
+debug($contact);
+
+foreach ($contact as $indice => $valeur){
+
+    if($indice == 'prenom'){
+        echo '<h3>' . $valeur . '</h3>';
+    }else {
+        echo '<p>' . $valeur . '</p>';
+    }
+}
+
+//---------------------------------------
+echo '<h2> Tableau multidimensionnel </h2>';
+//---------------------------------------
+// On parle de tableau multidimensionnel quand un tableau est contenu dans un autre tableau. Chaque tableau représente une dimension.
+
+// Création d'un tableau multidimensionnel :
+$tab_multi = array(
+    0 => array(
+        'prenom'     => 'Julien',
+        'nom'        => 'Dupon',
+        'telephone'  => '0120304050'
+    ),
+    1 => array(
+        'prenom'     => 'Nicole',
+        'nom'        => 'Adam',
+        'telephone'  => '0615854422'
+    ),
+    2 => array(
+        'prenom'     => 'Pierre',
+        'nom'        => 'Michel'
+    ),
+);
+
+debug($tab_multi);
+
+// Afficher la valeur "Julien" de $tab_multi :
+echo $tab_multi[0]['prenom']; // pour afficher "Julien" nous entrons d'abord à l'indice [0] de $tab_multi puis nous allons dans le sous tableau à l'indice ['prenom']
+ 
+echo '<br>';
+// Pour parcourir le tableau multidimensionnel on peut faire une boucle for car ses indices sont numériques :
+for ($i = 0; $i < count($tab_multi); $i++){ // tant que $i est infèrieur au nombre d'éléments du tableau $tab_multi (soit 3), on entre dans la boucle :
+    echo $tab_multi[$i]['prenom'] . '<br>'; // $i va successivement prendre la valeur 0, puis 1 puis 2, ce qui permet d'afficher les 3 prénoms.
+}
+echo '<hr>';
+// Exercice : vous affichez les trois prénoms du tableau $tab_multi avec une boucle foreach.
+
+
+foreach($tab_multi as $prenom => $valeur){ // quand il y a deux variables après "as", celle de gauche parcourt les indices, et celle de droite parcourt les valeurs (quelque soit leur nom).
+   /*  debug($prenom); */
+    echo $tab_multi[$prenom]['prenom'] . '<br>'; 
+    // ou :
+/*  echo $valeur['prenom'] . '<br>'; */  
+    echo $valeur['nom'] . '<br>';
+    echo $valeur['telephone'] . '<br>';
+}
+
+ // Exercices bonus : vous déclarez un tableau avec les tailles S, M, L, XL, XXL.
+ // Puis vous affichez les tailles dans un menu déroulant avec une boucle foreach.
+
+ $liste = array('S','M','L','XL','XXL');
+
+ debug($liste);
+
+ foreach ($liste as $indice => $valeur){
+    echo '<p>' . $valeur . '</p>';
+}
+
