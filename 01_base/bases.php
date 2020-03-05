@@ -43,6 +43,18 @@
         padding : 3px;
         margin-left :3px;
     }
+
+    select {
+        color: black;
+        font-size: 14px;
+        font-family: fantasy;
+        background-color: lightgrey;
+        width: 150px;
+        height: 25px;
+        margin: 20px;
+    }
+   
+
 </style>
 
 <?php 
@@ -457,7 +469,7 @@ function affichePays(){
 affichePays();
 
 //-----------------------------------------
-echo '<h2> Structure itératives : les boucles </h2>';
+echo '<h2> Structure intéractives : les boucles </h2>';
 //-----------------------------------------
 // Les boucles sont destinées à répéter du code de façon automatique.
 
@@ -743,7 +755,59 @@ foreach($tab_multi as $prenom => $valeur){ // quand il y a deux variables après
 
  debug($liste);
 
+
  foreach ($liste as $indice => $valeur){
     echo '<p>' . $valeur . '</p>';
-}
+
+ }
+
+?>
+<select>
+    <option selected="selected">Sélectionner la taille
+<?php
+    $taille = array("S small", "M médium", "L large", "XL très large", "XXL très très large");
+    foreach($taille as $value){
+?>
+    <option value="
+<?php 
+    echo strtolower($value);
+?>  ">
+<?php 
+    echo $value; 
+?>
+    </option>
+<?php
+    } 
+?>
+</select>
+
+<?php
+  // Définition du tableau des tailles
+  $arrayTailles = array(
+    'slt' => 'Sélectionner la taille',
+    's'   => 'S &nbsp &nbsp &nbsp &nbsp &nbsp small',
+    'm'   => 'M &nbsp &nbsp &nbsp &nbsp &nbsp médium',
+    'l'   => 'L &nbsp &nbsp &nbsp &nbsp &nbsp large',
+    'xl'  => 'XL &nbsp &nbsp &nbsp &nbsp très large',
+    'xxl' => 'XXL &nbsp &nbsp très très large',
+  );
+  // Variable qui ajoutera l'attribut selected de la liste déroulante
+  $selected = '';
+ 
+  // Parcours du tableau
+  echo '<select name="tailles">';
+  foreach($arrayTailles as $valeurHexadecimale => $nomTaille)
+  {
+    // Test de la taille
+    if($nomTailles === 'S small')
+    {
+      $selected = ' selected="selected"';
+    }
+    // Affichage de la ligne
+    echo '<option value="', $valeurHexadecimale ,'"', $selected ,'>', $nomTaille ,'</option>';
+    // Remise à zéro de $selected 
+    $selected='';
+  }
+  echo '</select>';
+?>
 
