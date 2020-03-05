@@ -37,7 +37,7 @@
     }
 
     p{
-        background : lightgrey;
+        background : lightblue;
         border : 1px solid grey;
         width : 105px;
         padding : 3px;
@@ -53,16 +53,27 @@
         height: 25px;
         margin: 20px;
     }
-   
+
+    h2{
+       
+        background: rgba(226,226,226,1);
+        background: -moz-linear-gradient(left, rgba(226,226,226,1) 3%, rgba(227,227,227,1) 4%, rgba(254,254,254,1) 40%, rgba(254,254,254,1) 49%, rgba(209,209,209,1) 84%, rgba(209,209,209,1) 100%);
+        background: -webkit-gradient(left top, right top, color-stop(3%, rgba(226,226,226,1)), color-stop(4%, rgba(227,227,227,1)), color-stop(40%, rgba(254,254,254,1)), color-stop(49%, rgba(254,254,254,1)), color-stop(84%, rgba(209,209,209,1)), color-stop(100%, rgba(209,209,209,1)));
+        background: -webkit-linear-gradient(left, rgba(226,226,226,1) 3%, rgba(227,227,227,1) 4%, rgba(254,254,254,1) 40%, rgba(254,254,254,1) 49%, rgba(209,209,209,1) 84%, rgba(209,209,209,1) 100%);
+        background: -o-linear-gradient(left, rgba(226,226,226,1) 3%, rgba(227,227,227,1) 4%, rgba(254,254,254,1) 40%, rgba(254,254,254,1) 49%, rgba(209,209,209,1) 84%, rgba(209,209,209,1) 100%);
+        background: -ms-linear-gradient(left, rgba(226,226,226,1) 3%, rgba(227,227,227,1) 4%, rgba(254,254,254,1) 40%, rgba(254,254,254,1) 49%, rgba(209,209,209,1) 84%, rgba(209,209,209,1) 100%);
+        background: linear-gradient(to right, rgba(226,226,226,1) 3%, rgba(227,227,227,1) 4%, rgba(254,254,254,1) 40%, rgba(254,254,254,1) 49%, rgba(209,209,209,1) 84%, rgba(209,209,209,1) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e2e2e2', endColorstr='#d1d1d1', GradientType=1 );
+   }
+
 
 </style>
 
 <?php 
-
+require_once 'function.php';
 //-------------------------------
-echo '<h2> Les balises PHP </h2>';
+echo ' <h2> Les balises PHP </h2> ';
 //-------------------------------
-
 ?>
 
 <?php 
@@ -810,4 +821,46 @@ foreach($tab_multi as $prenom => $valeur){ // quand il y a deux variables après
   }
   echo '</select>';
 ?>
+<?php
+$tailles = array('S', 'M', 'L', 'XL', 'XXL');
+//                0    1     2    3     4
+?>
+<select>
+<?php
+foreach ($tailles as $valeur){
+    echo '<option>' . $valeur . '</option>';
+}
+?>
+</select>
+<?php
+
+
+//---------------------------------------
+echo '<h2> Inclusion de fichiers </h2>';
+//---------------------------------------
+
+echo 'Première inclusion : ';
+include 'exemple.inc.php'; // permet de faire l'inclusion du fichier dont le chemin est specifié. En cas d'erreur lors de l'inclusion, include génère un warning et continue l'exécution du script.
+
+echo '<br>';
+
+echo 'Deuxième inclusion :';
+include_once 'exemple.inc.php'; // permet de fire l'inclusion du fichier si celui-ci n'a pas encore été inclus 'on ne l'inclut qu'une seule fois).
+
+echo '<br>';
+
+echo 'Troisième inclusion :';
+require 'exemple.inc.php'; // fait l'inclusion du fichier spécifié. Celui-ci est obligatoire au bon fonctionnement du site : en cas d'erreur lors de l'inclusion, require génère une erreur de type "fatal error" et stoppe l'éxecution du script.
+
+echo '<br>';
+
+echo 'Quatrième inclusion :';
+require_once 'exemple.inc.php'; // "once" signifie que l'on vérifie si le fichier a déjà été inclus. Si c'est le cas , on le ré-inclut pas.
+
+// Le ".inc" dans le nom du fichier inclus est un indicatif pour précisez aux développeurs que le fichier est destiné à être inclus, et qu'il ne s'agit pas d'une page à part entière.
+
+
+bonjourJames();
+
+echo '<br>';echo '<br>';
 
