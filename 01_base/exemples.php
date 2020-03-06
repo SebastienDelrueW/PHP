@@ -10,6 +10,12 @@ a{
     padding-left:5px;
 }
 
+form#mainForm{
+    border: 1px solid grey;
+    width: 200px;
+    background-color: lightgrey;
+}
+
    </style>
 <?php
 // Comment calculer l’âge à partir de la date de naissance en PHP
@@ -105,7 +111,7 @@ echo '<br>';
         <?php
          if (isset ($_POST['liste1']) && !empty ($_POST['liste1']))
          {
-        //tu récupère la valeur séletionnée
+        //tu récupère la valeur sélectionnée
            echo $_POST['liste1'];
          }
         ?>
@@ -187,8 +193,8 @@ if (isset($_GET['Submit'])) {
                 echo $clef. ' a ' .$valeur. ' ans<br>';
             }
         ?>
-<hr>
-<?php
+        <hr>
+        <?php
             /*Tableau multidimensionnel numéroté stockant
              *des tableaux numérotés*/
             $suite = [
@@ -224,7 +230,7 @@ if (isset($_GET['Submit'])) {
             $sous_produits = $produits['Livre'];
             echo $sous_produits['prix'];
         ?>
-<hr>
+        <hr>
         <?php
             /*Tableau multidimensionnel numéroté stockant
              *des tableaux numérotés*/
@@ -293,7 +299,7 @@ if (isset($_GET['Submit'])) {
             }
         ?>
         <hr>
-                <?php       
+        <?php       
             setlocale(LC_TIME, ['fr', 'fra', 'fr_FR']);
             
             $d1 = '25-01-2019';
@@ -345,7 +351,7 @@ foreach( $array as $key => $value )
 }
 ?> 
 <hr>
-    <FORM>
+    <form>
     <SELECT name="nom" size="1">
     <OPTION>lundi
     <OPTION>mardi
@@ -353,9 +359,9 @@ foreach( $array as $key => $value )
     <OPTION>jeudi
     <OPTION>vendredi
     </SELECT>
-    </FORM>
+    </form>
 <hr>
-    <FORM>
+    <form>
     <SELECT name="nom" size="1">
     <OPTION>lundi
     <OPTION>mardi
@@ -363,34 +369,35 @@ foreach( $array as $key => $value )
     <OPTION>jeudi
     <OPTION>vendredi
     </SELECT>
-    </FORM>
+    </form>
 <hr>
-    <FORM>
+    <form>
     <INPUT type= "radio" name="tarif" value="jour"> tarif de jour
     <INPUT type= "radio" name="tarif" value="nuit"> tarif de nuit
     <INPUT type= "radio" name="tarif" value="week-end"> tarif de week-end
-    </FORM>
+    </form>
 <hr>
-    <FORM>
+    <form>
     <INPUT type="checkbox" name="choix1" value="1"> glace vanille
     <INPUT type="checkbox" name="choix2" value="2"> chantilly
     <INPUT type="checkbox" name="choix3" value="3"> chocolat chaud
     <INPUT type="checkbox" name="choix4" value="4"> biscuit
-    </FORM>
+    <INPUT type="checkbox" name="choix5" value="5"> café gourmand
+    </form>
 
 <hr>
-    <FORM>
+    <form>
     <INPUT TYPE="submit" NAME="nom" VALUE=" Envoyer ">
-    </FORM>
+    </form>
 <hr>
-    <FORM>
+    <form>
     <INPUT TYPE="reset" NAME="nom" VALUE=" Annuler ">
-    </FORM>
+    </form>
 <hr>
 <!--     <form action="https://fr.wikipedia.org/wiki/James_Bond" method="get">  -->
     <form action="https://fr.wikipedia.org/wiki/Mission_impossible_(s%C3%A9rie_de_films)" method="get">
 <select name="annee">
-<option>choissisez une annee</option>
+<option>choisissez une année</option>
 <!-- <option value="2005">choix 1 Bond</option> -->
 <option value="2010">Mission impossible</option>
 
@@ -399,3 +406,4 @@ foreach( $array as $key => $value )
 <input type="submit" name="submit" value="2010" a href="https://fr.wikipedia.org/wiki/Mission_impossible_(s%C3%A9rie_de_films)">
 </form>
 
+<hr>

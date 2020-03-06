@@ -4,11 +4,30 @@
         border: 1px solid rgb(55, 52, 52);
         box-shadow: 8px 12px 2px 1px rgba(87, 84, 76, 0.2);
         width: 160px;
+        padding:25px;
+        margin-left: 10px;
     }
     p{
         color:black;
         font-family: fantasy;
         font-size: 15px;
+    }
+    input{
+       padding:10px; 
+       background-color:lightgrey;
+    }
+    
+    input#prenom{
+        padding-left:42px;
+    }
+
+    .bouton{
+        margin-left:100px;
+    }
+
+    .bouton:hover{
+        color:lightgrey;
+        
     }
 </style>
 
@@ -43,14 +62,18 @@ if(!empty($_POST)){ // si $_POST n'est pas vide, c'est qu'il est rempli, donc qu
 
     <div>
         <label for="prenom">Prénom</label>
-        <input type="text" name="prenom" id="prenom"><!-- il ne faut pas oublier les "name" sur les formulaires : ils constituent les indices de $_POST qui récéptionne les données.-->
+        <input type="text" name="prenom" id="prenom"><!-- il ne faut pas oublier les "name" sur les formulaires : ils constituent les indices de $_POST qui réceptionne les données.-->
     </div>
+    <br>
     <div>
         <label for="description">Description</label>
         <textarea name="description" id="description"></textarea>
     </div>
+     <br>
     <div>
+    <div class="bouton">
         <input type="submit" value="Envoyer">
+    </div>
     </div>
 </form>
 
