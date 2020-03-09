@@ -1,34 +1,36 @@
 <style>
-  h1 {
-        color:#404040;
-        border: 1px solid rgb(55, 52, 52);
-        box-shadow: 8px 12px 2px 1px rgba(87, 84, 76, 0.2);
-        width: 160px;
-        padding:25px;
-        margin-left: 10px;
-    }
-    p{
-        color:black;
-        font-family: fantasy;
-        font-size: 15px;
-    }
-    input{
-       padding:10px; 
-       background-color:lightgrey;
-    }
-    
-    input#prenom{
-        padding-left:42px;
-    }
+h1 {
+    color: #404040;
+    border: 1px solid rgb(55, 52, 52);
+    box-shadow: 8px 12px 2px 1px rgba(87, 84, 76, 0.2);
+    width: 160px;
+    padding: 25px;
+    margin-left: 10px;
+}
 
-    .bouton{
-        margin-left:100px;
-    }
+p {
+    color: black;
+    font-family: fantasy;
+    font-size: 15px;
+}
 
-    .bouton:hover{
-        color:lightgrey;
-        
-    }
+input {
+    padding: 10px;
+    background-color: lightgrey;
+}
+
+input#prenom {
+    padding-left: 42px;
+}
+
+.bouton {
+    margin-left: 100px;
+}
+
+.bouton:hover {
+    color: lightgrey;
+
+}
 </style>
 
 <?php
@@ -58,22 +60,23 @@ if(!empty($_POST)){ // si $_POST n'est pas vide, c'est qu'il est rempli, donc qu
 
 ?>
 <h1>Formulaire</h1>
-<form method="post" action=""><!-- un formulaire doit toujours être dans une balise <form> pour fonctionner. L'attribut method indique comment les données vont circuler vers le PHP. L'attribut action indique l'URL de destination des données (vide elles vont vers le même script). -->
+<form method="post" action="">
+    <!-- un formulaire doit toujours être dans une balise <form> pour fonctionner. L'attribut method indique comment les données vont circuler vers le PHP. L'attribut action indique l'URL de destination des données (vide elles vont vers le même script). -->
 
     <div>
         <label for="prenom">Prénom</label>
-        <input type="text" name="prenom" id="prenom"><!-- il ne faut pas oublier les "name" sur les formulaires : ils constituent les indices de $_POST qui réceptionne les données.-->
+        <input type="text" name="prenom" id="prenom">
+        <!-- il ne faut pas oublier les "name" sur les formulaires : ils constituent les indices de $_POST qui réceptionne les données.-->
     </div>
     <br>
     <div>
         <label for="description">Description</label>
         <textarea name="description" id="description"></textarea>
     </div>
-     <br>
+    <br>
     <div>
-    <div class="bouton">
-        <input type="submit" value="Envoyer">
-    </div>
+        <div class="bouton">
+            <input type="submit" value="Envoyer">
+        </div>
     </div>
 </form>
-

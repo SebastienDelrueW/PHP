@@ -1,10 +1,10 @@
 <style>
-  h1 {
-        color:blue;
-        border: 1px solid rgb(55, 52, 52);
-        box-shadow: 8px 12px 2px 1px rgba(87, 84, 76, 0.2);
-        width: 200px;
-    }
+h1 {
+    color: blue;
+    border: 1px solid rgb(55, 52, 52);
+    box-shadow: 8px 12px 2px 1px rgba(87, 84, 76, 0.2);
+    width: 200px;
+}
 </style>
 <?php
 // Exercice :

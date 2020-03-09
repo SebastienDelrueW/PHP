@@ -31,9 +31,13 @@ $un_an = time() + 365*24*60*60; // on prend le timestamp de maintenant auquel on
 
 setcookie('langue', $langue, $un_an); // on envoie notre cookie appelé "langue", avec pour contenu $langue, et pour date d'expiration $un_an.
 
-
 // 4- Affichage de la langue :
 echo '<h2>langue du site : ' . $langue . '</h2>';
+
+
+// Il n'existe pas de fonction prédéfinie qui permette de suprimer un cookie. Pour rendre un cookie invalide, on utilise setcookie() avec le nom du cookie concerné, et en mettant une date d'expiration à 0 ou antérieur à aujourd'hui.
+
+// Pour visualiser les cookies dans le navigateur : onglet "Stockage" dans Firefox, ou "Application" dans Chrome.
 
 // 1- Le HTML
 ?>

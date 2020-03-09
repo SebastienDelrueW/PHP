@@ -1,72 +1,71 @@
 <style>
-    h2 {
-        border-top: 1px solid navy;
-        border-bottom: 1px solid navy;
-        color: navy;
-    }
+h2 {
+    border-top: 1px solid navy;
+    border-bottom: 1px solid navy;
+    color: navy;
+}
 
-    a {
-        color:blue;
-       
-    }
+a {
+    color: blue;
 
-    b {
-        color:white
-    }
+}
 
-    span {
-        color: red;   
-    }
+b {
+    color: white
+}
 
-     /* Exercice */
+span {
+    color: red;
+}
 
-    td{
-        border: 1px solid grey;
-    }
-    table {
-        border-collapse: collapse;
-    }
+/* Exercice */
 
-    h3{
-        background : lightgrey;
-        border : 1px solid grey;
-        width : 105px;
-        padding : 3px;
-        margin-left :3px;
+td {
+    border: 1px solid grey;
+}
 
-    }
+table {
+    border-collapse: collapse;
+}
 
-    p{
-        background : lightblue;
-        border : 1px solid grey;
-        width : 105px;
-        padding : 3px;
-        margin-left :3px;
-    }
+h3 {
+    background: lightgrey;
+    border: 1px solid grey;
+    width: 105px;
+    padding: 3px;
+    margin-left: 3px;
 
-    select {
-        color: black;
-        font-size: 14px;
-        font-family: fantasy;
-        background-color: lightgrey;
-        width: 150px;
-        height: 25px;
-        margin: 20px;
-    }
+}
 
-    h2{
-       
-        background: rgba(226,226,226,1);
-        background: -moz-linear-gradient(left, rgba(226,226,226,1) 3%, rgba(227,227,227,1) 4%, rgba(254,254,254,1) 40%, rgba(254,254,254,1) 49%, rgba(209,209,209,1) 84%, rgba(209,209,209,1) 100%);
-        background: -webkit-gradient(left top, right top, color-stop(3%, rgba(226,226,226,1)), color-stop(4%, rgba(227,227,227,1)), color-stop(40%, rgba(254,254,254,1)), color-stop(49%, rgba(254,254,254,1)), color-stop(84%, rgba(209,209,209,1)), color-stop(100%, rgba(209,209,209,1)));
-        background: -webkit-linear-gradient(left, rgba(226,226,226,1) 3%, rgba(227,227,227,1) 4%, rgba(254,254,254,1) 40%, rgba(254,254,254,1) 49%, rgba(209,209,209,1) 84%, rgba(209,209,209,1) 100%);
-        background: -o-linear-gradient(left, rgba(226,226,226,1) 3%, rgba(227,227,227,1) 4%, rgba(254,254,254,1) 40%, rgba(254,254,254,1) 49%, rgba(209,209,209,1) 84%, rgba(209,209,209,1) 100%);
-        background: -ms-linear-gradient(left, rgba(226,226,226,1) 3%, rgba(227,227,227,1) 4%, rgba(254,254,254,1) 40%, rgba(254,254,254,1) 49%, rgba(209,209,209,1) 84%, rgba(209,209,209,1) 100%);
-        background: linear-gradient(to right, rgba(226,226,226,1) 3%, rgba(227,227,227,1) 4%, rgba(254,254,254,1) 40%, rgba(254,254,254,1) 49%, rgba(209,209,209,1) 84%, rgba(209,209,209,1) 100%);
-        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e2e2e2', endColorstr='#d1d1d1', GradientType=1 );
-   }
+p {
+    background: lightblue;
+    border: 1px solid grey;
+    width: 105px;
+    padding: 3px;
+    margin-left: 3px;
+}
 
+select {
+    color: black;
+    font-size: 14px;
+    font-family: fantasy;
+    background-color: lightgrey;
+    width: 150px;
+    height: 25px;
+    margin: 20px;
+}
 
+h2 {
+
+    background: rgba(226, 226, 226, 1);
+    background: -moz-linear-gradient(left, rgba(226, 226, 226, 1) 3%, rgba(227, 227, 227, 1) 4%, rgba(254, 254, 254, 1) 40%, rgba(254, 254, 254, 1) 49%, rgba(209, 209, 209, 1) 84%, rgba(209, 209, 209, 1) 100%);
+    background: -webkit-gradient(left top, right top, color-stop(3%, rgba(226, 226, 226, 1)), color-stop(4%, rgba(227, 227, 227, 1)), color-stop(40%, rgba(254, 254, 254, 1)), color-stop(49%, rgba(254, 254, 254, 1)), color-stop(84%, rgba(209, 209, 209, 1)), color-stop(100%, rgba(209, 209, 209, 1)));
+    background: -webkit-linear-gradient(left, rgba(226, 226, 226, 1) 3%, rgba(227, 227, 227, 1) 4%, rgba(254, 254, 254, 1) 40%, rgba(254, 254, 254, 1) 49%, rgba(209, 209, 209, 1) 84%, rgba(209, 209, 209, 1) 100%);
+    background: -o-linear-gradient(left, rgba(226, 226, 226, 1) 3%, rgba(227, 227, 227, 1) 4%, rgba(254, 254, 254, 1) 40%, rgba(254, 254, 254, 1) 49%, rgba(209, 209, 209, 1) 84%, rgba(209, 209, 209, 1) 100%);
+    background: -ms-linear-gradient(left, rgba(226, 226, 226, 1) 3%, rgba(227, 227, 227, 1) 4%, rgba(254, 254, 254, 1) 40%, rgba(254, 254, 254, 1) 49%, rgba(209, 209, 209, 1) 84%, rgba(209, 209, 209, 1) 100%);
+    background: linear-gradient(to right, rgba(226, 226, 226, 1) 3%, rgba(227, 227, 227, 1) 4%, rgba(254, 254, 254, 1) 40%, rgba(254, 254, 254, 1) 49%, rgba(209, 209, 209, 1) 84%, rgba(209, 209, 209, 1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e2e2e2', endColorstr='#d1d1d1', GradientType=1);
+}
 </style>
 
 <?php 
@@ -81,7 +80,8 @@ echo ' <h2> Les balises PHP </h2> ';
 // pour fermer un passage en PHP on utilise la balise suivante :
 ?>
 
-<p>Bonjour</p> <!-- en dehors des balises de PHP nous pouvons écrire du HTML dans un fichier ayant l'extension .php (ce n'est pas possible dans un fichier .html)-->
+<p>Bonjour</p>
+<!-- en dehors des balises de PHP nous pouvons écrire du HTML dans un fichier ayant l'extension .php (ce n'est pas possible dans un fichier .html)-->
 
 <?php
 // vous n'êtes pas obligé de fermer un passage en PHP en fin de script
@@ -552,10 +552,10 @@ for ($l = 0; $l < 15; $l+=5){ // on trouve dans les () de la for : La valeur de 
 // Exercice : vous affichez les mois de 1 à 12 à l'aide d'une boucle for dans le menu
 ?>
 <form>
-<label>Mois de naisance </label>
+    <label>Mois de naisance </label>
 
     <select>
-<?php
+        <?php
         for($mois = 1; $mois <= 12; $mois++){
             echo '<option>' . $mois . '</option>';
         }
@@ -580,15 +580,15 @@ for ($l = 0; $l < 15; $l+=5){ // on trouve dans les () de la for : La valeur de 
 
 <table>
     <tr>
-        
-<?php
+
+        <?php
     for ($i = 0; $i < 10; $i++){ 
       /*   echo '<td>';
         echo $i . '';
         echo '<td>'; */
         echo '<td>' . $i . '</td>';
 }  
-?> 
+?>
     </tr>
 </table>
 
@@ -775,7 +775,7 @@ foreach($tab_multi as $prenom => $valeur){ // quand il y a deux variables après
 ?>
 <select>
     <option selected="selected">Sélectionner la taille
-<?php
+        <?php
     $taille = array("S small", "M médium", "L large", "XL très large", "XXL très très large");
     foreach($taille as $value){
 ?>
@@ -783,11 +783,11 @@ foreach($tab_multi as $prenom => $valeur){ // quand il y a deux variables après
 <?php 
     echo strtolower($value);
 ?>  ">
-<?php 
+        <?php 
     echo $value; 
 ?>
     </option>
-<?php
+    <?php
     } 
 ?>
 </select>
@@ -826,7 +826,7 @@ $tailles = array('S', 'M', 'L', 'XL', 'XXL');
 //                0    1     2    3     4
 ?>
 <select>
-<?php
+    <?php
 foreach ($tailles as $valeur){
     echo '<option>' . $valeur . '</option>';
 }
@@ -864,3 +864,28 @@ bonjourJames();
 
 echo '<br>';echo '<br>';
 
+
+//---------------------------------------
+echo '<h2> Introduction aux objets </h2>';
+//---------------------------------------
+// un objet est un autre type de données (object en anglais). Il représente un objet réel (par exemple une voiture, un personnage, un membre inscrit à votre site, un produit que vous vendez, unn panier d'achat...) auquel on peut associer des variables, appelées propriétés, et des fonctions appelées méthodes.
+
+// Pour créer des objets il nous faut un plan de construction : c'est le rôle de la classe (class en anglais). Nous créons ici une classe pour fabriquer des meubles :
+
+class Meuble{ // on met une majuscules à la 1ère lettre du nom de la classe
+
+   public $marque = 'ikea'; // propriété "marque". public permet de préciser que l'élément sera accessible partout.
+
+   public function prix(){ // prix() est une méthode.
+       return rand(50,200) . '€'; // rand() est une fonction prédéfinie qui tire un chiffre aléatoire ici entre 50 et 200.
+   }
+}
+
+// On crée une table à partir de la classe Meuble :
+$table = new Meuble(); // on crée un objet $table à partir de la classe Meuble à l'aide du mot clé "new". On dit que l'on instancie la classe. $table est donc de type objet.
+
+debug($table); // on voit le type object et la seule propriété "marque"
+
+echo 'La marque de notre table est : ' . $table->marque . '<br>'; // pour accéder à la propriété d'un objet, on écrit l'objet suivi de la flèche "->" puis du nom de la propriété SANS le "$".
+
+echo 'Le prix de notre table est de : ' . $table->prix() . '<br>'; // pour executer la méthode d'un objet, on écrit son nom après la flèche "->" et on lui ajoute une paire de ().
