@@ -18,7 +18,6 @@
     .btn.btn-info {
         width: 160px;
         background-color: #3b88fd;
-
     }
 
     .btn.btn-info:hover {
@@ -35,9 +34,9 @@
     }
 
     th {
-        font-family: fantasy;
         background-color: lightgrey;
         color: white;
+
     }
 
     table {
