@@ -1,22 +1,20 @@
-
-   <style>
+<style>
 input {
-    color:purple;
+    color: purple;
 }
 
-a{
-    font-family:fantasy;
-    color:blue;
-    padding-left:5px;
+a {
+    font-family: fantasy;
+    color: blue;
+    padding-left: 5px;
 }
 
-form#mainForm{
+form#mainForm {
     border: 1px solid grey;
     width: 200px;
     background-color: lightgrey;
 }
-
-   </style>
+</style>
 <?php
 // Comment calculer l’âge à partir de la date de naissance en PHP
 
@@ -98,8 +96,8 @@ echo '<br>';
             );
 ?>
 <form method="post" id="mainForm">
-        <select name="liste1" onchange="document.getElementById('mainForm').submit();">
-         <?php
+    <select name="liste1" onchange="document.getElementById('mainForm').submit();">
+        <?php
           foreach ($aTab as $clef => $dump)
           {
             $selected=(isset($_POST['liste1']) && $_POST['liste1'] == $clef);
@@ -107,15 +105,15 @@ echo '<br>';
             echo '<option value="'.$dump[0].'">',$clef,'</option>';
           }
          ?>
-        </select>
-        <?php
+    </select>
+    <?php
          if (isset ($_POST['liste1']) && !empty ($_POST['liste1']))
          {
         //tu récupère la valeur sélectionnée
            echo $_POST['liste1'];
          }
         ?>
-       </form>
+</form>
 <?php
 ?>
 <hr>
@@ -123,10 +121,10 @@ echo '<br>';
 <form method="GET">
     <select name="note">
         <?php foreach($notes as $k => $val) { ?>
-            <option value="<?php echo $k; ?>"><?php echo $k; ?></option>
+        <option value="<?php echo $k; ?>"><?php echo $k; ?></option>
         <?php } ?>
     </select>
-  <input name="Submit" type="submit" value="Submit">
+    <input name="Submit" type="submit" value="Submit">
 </form>
 <?php
 if (isset($_GET['Submit'])) {
@@ -134,7 +132,7 @@ if (isset($_GET['Submit'])) {
 }
 ?>
 <hr>
-    <?php 
+<?php 
     echo '<br>';
       $date1 = "2010-01-15";
       $date2 = "2020-12-14";  
@@ -144,41 +142,41 @@ if (isset($_GET['Submit'])) {
         echo "$date1 est supérieur à $date2";
     ?>
 <hr>
-    <form method="post" action="traitement.php">
-       <select name="region" id="region">
-           <optgroup label="Région">
-               <option value="ile_de_france">Ile de France</option>
-               <option value="bretagne">Bretagne</option>
-               <option value="normandie">Normandie</option>
-                <option value="corse">Corse</option>
-           </optgroup>
-       </select>
+<form method="post" action="traitement.php">
+    <select name="region" id="region">
+        <optgroup label="Région">
+            <option value="ile_de_france">Ile de France</option>
+            <option value="bretagne">Bretagne</option>
+            <option value="normandie">Normandie</option>
+            <option value="corse">Corse</option>
+        </optgroup>
+    </select>
 </form>
 <hr>
 <select>
-<option>1</option>
-<option selected="selected">2</option>
-<option>3</option>
+    <option>1</option>
+    <option selected="selected">2</option>
+    <option>3</option>
 </select>
 <hr>
 <form action="/action_page.php">
-<select required>
-  <option value="">None</option>
-  <option value="volvo">Volvo</option>
-  <option value="saab">Saab</option>
-  <option value="mercedes">Mercedes</option>
-  <option value="audi">Audi</option>
-</select>
-<input type="submit">
+    <select required>
+        <option value="">None</option>
+        <option value="volvo">Volvo</option>
+        <option value="saab">Saab</option>
+        <option value="mercedes">Mercedes</option>
+        <option value="audi">Audi</option>
+    </select>
+    <input type="submit">
 </form>
 <hr>
 <select>
-<option>1</option>
-<option selected disabled>2</option>
-<option>3</option>
+    <option>1</option>
+    <option selected disabled>2</option>
+    <option>3</option>
 </select>
 <hr>
-        <?php
+<?php
             $ages = ['Mathilde' => 27, 'Pierre' => 29, 'Amandine' => 21];
             
             /*Identique à
@@ -193,8 +191,8 @@ if (isset($_GET['Submit'])) {
                 echo $clef. ' a ' .$valeur. ' ans<br>';
             }
         ?>
-        <hr>
-        <?php
+<hr>
+<?php
             /*Tableau multidimensionnel numéroté stockant
              *des tableaux numérotés*/
             $suite = [
@@ -230,8 +228,8 @@ if (isset($_GET['Submit'])) {
             $sous_produits = $produits['Livre'];
             echo $sous_produits['prix'];
         ?>
-        <hr>
-        <?php
+<hr>
+<?php
             /*Tableau multidimensionnel numéroté stockant
              *des tableaux numérotés*/
             $suite = [
@@ -261,8 +259,8 @@ if (isset($_GET['Submit'])) {
             echo $utilisateurs[3]. '<br>';
             echo $produits['Livre']['prix'];
         ?>
-        <hr>
-                <?php
+<hr>
+<?php
             $suite = [
                 [1, 2, 4, 8, 16],
                 [1, 3, 9, 27, 81]
@@ -298,8 +296,8 @@ if (isset($_GET['Submit'])) {
                 echo '<br>';
             }
         ?>
-        <hr>
-        <?php       
+<hr>
+<?php       
             setlocale(LC_TIME, ['fr', 'fra', 'fr_FR']);
             
             $d1 = '25-01-2019';
@@ -318,23 +316,23 @@ if (isset($_GET['Submit'])) {
                  echo 'Le ' .$dfr2. ' est avant le ' .$dfr1;
             }
         ?>
-        <hr>
-        <?php
+<hr>
+<?php
 $array = array( 'premier' => 'N° 1', 'deuxieme' => 'N° 2', 'troisieme' => 'N° 3');
 
 foreach( $array as $value ) // on parcourt $array, la valeur de l'item courant est copiée dans $value
   echo $value . '<br />'; // affichage
-?> 
-   <hr>
+?>
+<hr>
 
-    <?php
+<?php
 $array = array( 'premier' => 'N° 1', 'deuxieme' => 'N° 2', 'troisieme' => 'N° 3');
 
 foreach( $array as $key => $value )
   echo 'Cet élément a pour clé "' . $key . '" et pour valeur "' . $value . '"<br />';
-?> 
+?>
 <hr>
- 	
+
 <?php
 $array = array( 'fruits' => array( 'pommes', 'tomates', 'abricots' ),
                 'animaux' => array( 'chats', 'chiens' ),
@@ -349,61 +347,62 @@ foreach( $array as $key => $value )
    
   echo '<br />';
 }
-?> 
+?>
 <hr>
-    <form>
+<form>
     <SELECT name="nom" size="1">
-    <OPTION>lundi
-    <OPTION>mardi
-    <OPTION>mercredi
-    <OPTION>jeudi
-    <OPTION>vendredi
+        <OPTION>lundi
+        <OPTION>mardi
+        <OPTION>mercredi
+        <OPTION>jeudi
+        <OPTION>vendredi
     </SELECT>
-    </form>
+</form>
 <hr>
-    <form>
+<form>
     <SELECT name="nom" size="1">
-    <OPTION>lundi
-    <OPTION>mardi
-    <OPTION selected>mercredi
-    <OPTION>jeudi
-    <OPTION>vendredi
+        <OPTION>lundi
+        <OPTION>mardi
+        <OPTION selected>mercredi
+        <OPTION>jeudi
+        <OPTION>vendredi
     </SELECT>
-    </form>
+</form>
 <hr>
-    <form>
-    <INPUT type= "radio" name="tarif" value="jour"> tarif de jour
-    <INPUT type= "radio" name="tarif" value="nuit"> tarif de nuit
-    <INPUT type= "radio" name="tarif" value="week-end"> tarif de week-end
-    </form>
+<form>
+    <INPUT type="radio" name="tarif" value="jour"> tarif de jour
+    <INPUT type="radio" name="tarif" value="nuit"> tarif de nuit
+    <INPUT type="radio" name="tarif" value="week-end"> tarif de week-end
+</form>
 <hr>
-    <form>
+<form>
     <INPUT type="checkbox" name="choix1" value="1"> glace vanille
     <INPUT type="checkbox" name="choix2" value="2"> chantilly
     <INPUT type="checkbox" name="choix3" value="3"> chocolat chaud
     <INPUT type="checkbox" name="choix4" value="4"> biscuit
     <INPUT type="checkbox" name="choix5" value="5"> café gourmand
-    </form>
+</form>
 
 <hr>
-    <form>
+<form>
     <INPUT TYPE="submit" NAME="nom" VALUE=" Envoyer ">
-    </form>
+</form>
 <hr>
-    <form>
+<form>
     <INPUT TYPE="reset" NAME="nom" VALUE=" Annuler ">
-    </form>
+</form>
 <hr>
 <!--     <form action="https://fr.wikipedia.org/wiki/James_Bond" method="get">  -->
-    <form action="https://fr.wikipedia.org/wiki/Mission_impossible_(s%C3%A9rie_de_films)" method="get">
-<select name="annee">
-<option>choisissez une année</option>
-<!-- <option value="2005">choix 1 Bond</option> -->
-<option value="2010">Mission impossible</option>
+<form action="https://fr.wikipedia.org/wiki/Mission_impossible_(s%C3%A9rie_de_films)" method="get">
+    <select name="annee">
+        <option>choisissez une année</option>
+        <!-- <option value="2005">choix 1 Bond</option> -->
+        <option value="2010">Mission impossible</option>
 
-</select>
-<!-- <input type="submit" name="submit" value="2005" a href="https://fr.wikipedia.org/wiki/James_Bond"> -->
-<input type="submit" name="submit" value="2010" a href="https://fr.wikipedia.org/wiki/Mission_impossible_(s%C3%A9rie_de_films)">
+    </select>
+    <!-- <input type="submit" name="submit" value="2005" a href="https://fr.wikipedia.org/wiki/James_Bond"> -->
+    <input type="submit" name="submit" value="2010" a
+        href="https://fr.wikipedia.org/wiki/Mission_impossible_(s%C3%A9rie_de_films)">
 </form>
 
 <hr>
