@@ -1,11 +1,32 @@
-
 <style>
-  label {
-        color:blue;
+  h1 {
+        color:#992306;
         border: 1px solid rgb(55, 52, 52);
         box-shadow: 8px 12px 2px 1px rgba(87, 84, 76, 0.2);
-        width: 200px;
+        width: 160px;
+        padding:25px;
+        margin-left: 10px;
     }
+    p{
+        color:black;
+        font-family: fantasy;
+        font-size: 15px;
+    }
+    .bouton{
+        margin-left:100px;
+    }
+
+    .bouton:hover{
+        color:lightgrey;
+    }
+    label {
+        color:marron;
+        box-shadow: 2px 3px 2px 1px rgba(87, 84, 76, 0.2);
+    }
+    input{
+        background-color:lightgrey;
+    }
+  
 </style>
 <?php
 // Exercice
@@ -19,7 +40,8 @@
     <div>
         <label for="ville">Ville</label>
         <input type="text" name="ville" id="ville">
-    </div>
+     </div>
+    <br>
     <br>
     <div>
         <label for="code">code postal</label>
@@ -32,7 +54,9 @@
     </div>
     <br>
     <div>
-        <input type="submit" value="Envoyer">
+    <div class="bouton">
+    <input type="submit" value="Envoyer">
+    </div>
     </div>
 </form>
 <?php
