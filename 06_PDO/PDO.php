@@ -43,7 +43,7 @@ echo '<h2> 01. Connexion à la BDD </h2>';
 $pdo = new PDO(
     'mysql:host=localhost;dbname=entreprise', // driver mysql (IBM, oracle, ODBC...), nom du serveur (host), nom de la BDD (dbname)
     'root', // pseudo de la BDD
-    '',     // mdp de la BDD
+    'root',     // mdp de la BDD utilisation de MAMP
     array(
         PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING, // pour afficher les erreurs SQL dans le navigateur
         PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8', // pour définir le charset des échanges avec la BDD
@@ -112,6 +112,12 @@ echo '<a>Je suis ' . $employe['prenom'] . ' ' . $employe['nom'] . ' du service '
 
 // Exercice : afficher le service de l'employé dont l'id_employes est 417.
 
-$resultat = $pdo->query("SELECT * FROM employes WHERE id_employes = 417 ");
+$resultat = $pdo->query(" SELECT * FROM employes WHERE id_employes = 417 ");
 
-debug($resultat);
+debug(417);
+
+$employe[417] = $resultat->fetch(PDO::FETCH_NUM);
+
+debug($employe[417]);
+
+echo '<a>Je suis ' . 'Chloé' . ' Dubar' . ' du service ' . ' production ' . '<br></a>';
