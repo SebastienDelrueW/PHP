@@ -1,3 +1,4 @@
+
 <h1>Les commerciaux et leur salaire</h1>
 
 <?php
