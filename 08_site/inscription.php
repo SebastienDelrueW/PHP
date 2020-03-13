@@ -1,28 +1,46 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 <style>
-    .alert.alert-danger {
-        color: black;
-        background-color: #d6d8d9;
-        border: 1px solid red;
-        box-shadow: 8px 8px 12px #aaa;
-    }
+body {
+    background-color: #dd884b8f;
+}
 
-    .btn.btn-info:hover {
-        background-color: maroon;
-        box-shadow: 8px 8px 12px #aaa;
-    }
+.alert.alert-danger {
+    color: black;
+    background-color: #d6d8d9;
+    border: 1px solid red;
+    box-shadow: 8px 8px 12px #aaa;
+}
 
-    .btn.bg-white {
-        box-shadow: 8px 8px 12px #aaa;
-    }
+.navbar-dark .navbar-brand {
+    color: #573a3a;
 
-    label {
-        color: maroon;
-        font-family: fantasy;
-    }
+}
 
-    strong {
-        color: black;
-    }
+.btn.btn-info:hover {
+    background-color: maroon;
+    box-shadow: 8px 8px 12px #aaa;
+}
+
+.btn.bg-white {
+    box-shadow: 8px 8px 12px #aaa;
+}
+
+label {
+    color: maroon;
+    font-family: fantasy;
+}
+span {
+    color: maroon;
+    font-family: fantasy;
+}
+strong {
+    color: black;
+}
+
+a {
+    color: black;
+}
 </style>
 <?php
 require_once 'inc/init.php';
@@ -114,9 +132,11 @@ if (!empty($_POST)) { // si le formulaire a été envoyé, $_POST n'est pas vide
 require_once 'inc/header.php';
 ?>
 <h1 class="mt-4">Inscription</h1>
+
 <?php
 echo $contenu; // pour afficher les messages
 ?>
+<br>
 <form method="post" action="">
     <div>
         <div><label for="pseudo"><strong>P</strong>seudo</label></div>
@@ -146,8 +166,9 @@ echo $contenu; // pour afficher les messages
     <div>
         <div><label><strong>C</strong>ivilité</label></div>
     </div>
-    <input type="radio" name="civilite" value="m" checked> <strong>H</strong>omme
-    <input type="radio" name="civilite" value="f" <?php if (isset($_POST['civilite']) && $_POST['civilite'] == 'f') echo 'checked'; ?>> <strong>F</strong>emme
+    <input type="radio" name="civilite" value="m" checked> <strong>H</strong><span>omme</span>
+    <input type="radio" name="civilite" value="f"
+        <?php if (isset($_POST['civilite']) && $_POST['civilite'] == 'f') echo 'checked'; ?>> <strong>F</strong><span>emme</span>
     </div>
     </div>
 

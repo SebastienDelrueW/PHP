@@ -1,3 +1,33 @@
+<style>
+body {
+    background-color: #ff60005e;
+}
+
+.alert.alert-danger {
+    color: black;
+    background-color: #d6d8d9;
+    border: 1px solid red;
+    box-shadow: 8px 8px 12px #aaa;
+}
+
+.btn.btn-info:hover {
+    background-color: maroon;
+    box-shadow: 8px 8px 12px #aaa;
+}
+
+.btn.bg-white {
+    box-shadow: 8px 8px 12px #aaa;
+}
+
+label {
+    color: maroon;
+    font-family: fantasy;
+}
+
+strong {
+    color: black;
+}
+</style>
 <?php
 // Ce fichier sera inclus au début de tous les scripts du site.
 

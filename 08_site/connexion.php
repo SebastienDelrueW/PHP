@@ -1,17 +1,13 @@
 <style>
     .container {
-        background-color: #ccd8f5;
+        background-color: #d79356b3;
     }
 
     h1 {
         box-shadow: 8px 8px 12px #aaa;
         width: 200px;
     }
-
-    nav{
-        color: black;
-    }
-
+    
     .alert.alert-danger {
         color: black;
         background-color: #d6d8d9;
@@ -53,7 +49,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion'){ // si existe "a
 }
 
 // 1- Traitement du formulaire :
-/* debug($_POST); */
+//  debug($_POST); 
 
 if (!empty($_POST)) { // si le formulaire a été envoyé
 
