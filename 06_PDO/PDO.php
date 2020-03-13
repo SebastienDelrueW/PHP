@@ -209,7 +209,9 @@ echo '<h2> 06. Afficher les résultats de la requête dans une table HTML </h2>'
 </style>
 
 <?php
-$resultat = $pdo->query("SELECT * from employes ORDER BY salaire ASC");
+$resultat = $pdo->query("SELECT * FROM employes ORDER BY salaire ASC");
+
+debug($resultat);
 
 echo '<table>';
 // La ligne des entêtes :
@@ -270,8 +272,8 @@ echo $employe['prenom'] . ' ' .  $employe['nom'] . ' du service ' . $employe['se
 
     execute() :
     Succès : true
-    Echec : false
-:*/
+    Echec  : false
+*/
 
 //------------------------
 echo '<h2> 08. Requêtes préparées sans bindParam </h2>';
