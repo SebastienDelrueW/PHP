@@ -40,6 +40,7 @@
 
 <?php
 
+
 require_once 'inc/init.php';
 // 1 - Vérification de la session :
 //debug($_SESSION);
@@ -65,3 +66,13 @@ if(estAdmin()){
 <?php
 require_once 'inc/footer.php';
 ?>
+
+require_once 'inc/init.php';
+
+require_once 'inc/header.php';
+?>
+<h1 class="mt-4"><strong>P</strong>rofil</h1>
+
+
+<?php
+require_once 'inc/footer.php';

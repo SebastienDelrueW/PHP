@@ -17,6 +17,7 @@
 .container{
     width : 100%;
 }
+
 body{
     background-color: #9ca3a75e;
 }

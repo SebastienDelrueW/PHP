@@ -1,6 +1,7 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 <style>
+
 .container {
     width: 100%;
 }
@@ -39,7 +40,6 @@ span {
     color: maroon;
     font-family: fantasy;
 }
-
 strong {
     color: black;
 }
@@ -52,6 +52,7 @@ a {
 require_once 'inc/init.php';
 
 // Traitement du formulaire :
+
 //  debug($_POST); 
 
 if (!empty($_POST)) { // si le formulaire a été envoyé, $_POST n'est pas vide
@@ -174,8 +175,9 @@ echo $contenu; // pour afficher les messages
     </div>
     <input type="radio" name="civilite" value="m" checked> <strong>H</strong><span>omme</span>
     <input type="radio" name="civilite" value="f"
-        <?php if (isset($_POST['civilite']) && $_POST['civilite'] == 'f') echo 'checked'; ?>>
-    <strong>F</strong><span>emme</span>
+
+        <?php if (isset($_POST['civilite']) && $_POST['civilite'] == 'f') echo 'checked'; ?>> <strong>F</strong><span>emme</span>
+
     </div>
     </div>
 

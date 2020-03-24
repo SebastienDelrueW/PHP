@@ -44,6 +44,7 @@ debug($_GET);
 if (isset($_GET['action']) && $_GET['action'] == 'deconnexion'){ // si existe "action" dans l'URL et que sa valeur est "deconnexion" c'est que le membre veut se déconnecter
 
     unset($_SESSION['membre']); // on supprime l'indice "membre" de la session pour déconnecter le membre
+
     $message = '<div class="alert alert-info">Vous êtes déconnecter.</div>';
 }
 
@@ -56,6 +57,7 @@ if (estConnecte()) { // si membre déjà connecté alors on le renvoie vers son 
 
 // 1- Traitement du formulaire :
  debug($_POST); 
+
 
 if (!empty($_POST)) { // si le formulaire a été envoyé
 
@@ -74,8 +76,12 @@ if (!empty($_POST)) { // si le formulaire a été envoyé
 
             $membre = $resultat->fetch(PDO::FETCH_ASSOC); // on fetch l'objet $resultat en un tableau associatif qui contient toutes les informations de membre.
 
-            debug($membre);
+            //debug($membre);
+
             debug(password_verify($_POST['mdp'], $membre['mdp'])); 
+
+
+
             if (password_verify($_POST['mdp'], $membre['mdp'])) { // si le hash du mdp de la BDD correspond au mdp du formulaire, alors password_verify retourne true
                 $_SESSION['membre'] = $membre; // nous créons une session avec les infos du membre provenant de la BDD.
 
@@ -88,6 +94,7 @@ if (!empty($_POST)) { // si le formulaire a été envoyé
             }
         } else {
             $contenu .= '<div class="alert alert-danger">Erreurs sur les identifiants2.</div>';
+
         }
     }
 } // fin du if (!empty($_POST))
