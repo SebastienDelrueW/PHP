@@ -11,6 +11,52 @@
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
     <title>Ma Boutique</title>
+
+<style>
+
+.container{
+    width : 100%;
+}
+body{
+    background-color: #9ca3a75e;
+}
+
+.navbar-expand-lg {
+    color:marron;
+}
+.alert.alert-danger {
+    color: black;
+    background-color: #d6d8d9;
+    border: 1px solid red;
+    box-shadow: 8px 8px 12px #aaa;
+}
+h1{
+    box-shadow: 8px 8px 12px #796e6e9e;
+    width:200;
+}
+
+.btn.btn-info:hover {
+    background-color: maroon;
+    box-shadow: 8px 8px 12px #aaa;
+}
+
+.btn.bg-white {
+    box-shadow: 8px 8px 12px #aaa;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: rgba(43, 8, 8, 0.87);
+
+}
+label {
+    color: maroon;
+    font-family: fantasy;
+}
+
+strong {
+    color: black;
+}
+</style>
 </head>
 
 <body>

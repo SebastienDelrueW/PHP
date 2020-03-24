@@ -1,0 +1,234 @@
+/*
+Theme Name: Eprojet
+Author: Sébastien
+Description: Thème du site de petites annonces de véhicules d'occasion
+Version: 1.0
+Tags: petites annonces, occasions, voitures, deux-roues, utilitaires
+*/
+
+
+/***************** HEADER+MENU *****************/
+
+#informations {
+    float: left;
+    width: 20%;
+    color: #fff;
+    line-height: 80px;
+}
+
+.navbar-brand a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.navbar-brand {
+    margin-right: 0px;
+}
+
+.texte-description {
+    font-style: italic;
+    font-size: 10px;
+    color: #fff;
+    margin-top: 14px;
+}
+
+nav ul.sub-menu {
+    display: none;
+    width: 150px;
+    position: absolute;
+    list-style: none;
+    z-index: 10;
+}
+
+nav li a {
+    text-decoration: none;
+    padding: 2px 40px 2px 0px;
+    display: block;
+    color: #fff;
+}
+
+nav li a:hover,
+nav li a:hover {
+    color: #fff;
+}
+
+nav ul {
+    padding: 0;
+    margin: 0px;
+}
+
+nav ul li.menu-item-has-children:hover ul.sub-menu {
+    display: block;
+    background: #343a40;
+}
+
+nav ul li.menu-item-has-children:hover ul.sub-menu a,
+.menu-item a {
+    color: #fff;
+}
+
+li {
+    list-style: none;
+}
+
+a,
+a:hover {
+    color: #0056b3;
+}
+
+.sub-menu li {
+    padding-left: 10px;
+}
+
+
+/***************** FOOTER *****************/
+
+footer {
+    margin: 0;
+    text-align: center;
+    background: #343a40;
+    min-height: 160px;
+    margin-top: 50px;
+    color: #fff;
+    display: flex;
+}
+
+footer ul {
+    padding: 0 !important;
+}
+
+
+/***************** SECTION *****************/
+
+h1 {
+    margin: 15px 0 45px 0;
+}
+
+section.container {
+    padding-top: 45px;
+}
+
+.conteneur {
+    margin: 0 auto;
+    max-width: 1170px;
+}
+
+
+/*#entete{height: 100px;}*/
+
+.home #entete {
+    min-height: 530px;
+    background: url(assets/bg1.jpg) no-repeat;
+    width: 100%;
+    background-size: cover;
+    display: flex;
+}
+
+.home #entete div {
+    color: #fff;
+    font-size: 50px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.slogan {
+    color: #fff;
+    text-align: center;
+    font-size: 30px;
+    margin: 100px 0 100px 0;
+}
+
+
+/***************** DETAIL ANNONCE *****************/
+
+h2 {
+    color: #343a40;
+    font-size: 28px;
+}
+
+.contenu {
+    padding: 10px 0;
+    font-size: 16px;
+}
+
+.photo {
+    width: 960px;
+    margin: 0 auto;
+}
+
+.info span {
+    font-weight: bold;
+}
+
+.categories-tabs a {
+    text-decoration: none;
+    color: #343a40;
+    float: left;
+    padding-right: 5px;
+    font-size: 24px;
+}
+
+.avatar {
+    width: 32px;
+}
+
+
+/***************** LISTE ANNONCE *****************/
+
+.cat-info {
+    margin-bottom: 40px;
+    border-bottom: 1px solid #aaa;
+    padding-bottom: 40px;
+}
+
+img.cat-info {
+    width: 150px;
+}
+
+.cat-info span {
+    font-weight: bold;
+}
+
+
+/***************** FORMULAIRE DE COMMENTAIRES *****************/
+
+.comment-form label {
+    width: 150px;
+    vertical-align: top;
+}
+
+li.comment {
+    list-style: none;
+}
+
+
+/***************** SLIDER TEMPLATE TROIS ZONES  ************************/
+
+.rose {
+    background: pink;
+    height: 400px;
+}
+
+.float {
+    float: left;
+}
+
+
+/***************** WOOCCOMMERCE ************************/
+
+
+/* Mon compte */
+
+.woocommerce-MyAccount-navigation ul li a,
+.woocommerce-MyAccount-navigation ul li a:hover {
+    color: #0056b3;
+}
+
+
+/* pour rendre compatibles les classes col-1 et col-2 utilisées par WC et BootStrap 4 ! */
+
+.woocommerce .col-1,
+.woocommerce .col-2 {
+    max-width: none;
+    padding: 0;
+}
