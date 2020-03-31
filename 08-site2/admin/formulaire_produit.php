@@ -58,6 +58,7 @@ if (!empty($_POST)) {  // si le formulaire a été envoyé
 require_once '../inc/header.php';
 // 2- onglets de navigation entre gestion_boutique et formulaire_produit :
 ?>
+
 <style>
 th,
 td {
@@ -72,6 +73,7 @@ h1.mt-4{
 	padding-left:3px;
 }
 </style>
+
 	<h1 class="mt-4">Gestion de la boutique</h1>
 
 	<ul class="nav nav-tabs">
