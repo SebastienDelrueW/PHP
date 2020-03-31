@@ -1,0 +1,51 @@
+<!--
+    Exercice : voici un extrait de texte dont l'identifiant est 105. Lorsqu'on clique sur "lire la suite", une requête est envoyée au serveur  GET avec l'Id 105.
+    Le serveur répond le texte complet. 
+    Vous recevez le texte complet en JS, puis vous l'afichez dans le <p>
+-->
+
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lecture</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <style>
+        p {
+            color: rgb(154, 3, 3);
+            border: 1px solid grey;
+            width: 250px;
+            padding-left: 20px;
+            /* margin: 0 auto; */
+            box-shadow: 2px 3px 2px 1px rgba(87, 84, 76, 0.2);
+        }
+    </style>
+</head>
+
+<body>
+    <p>Lorem ipsum dolor sit amet <a href="#"> lire la suite...</a></p>
+
+    <script>
+        $(function() {
+            $('a').click(function() {
+
+                // 2fonction de traitement de la réponse
+                function reponse(reponseduPHP) {
+                    console.log(reponseduPHP); // on voit que nous avons une propriété "texte" qui correspond à l'indice du tableau $retour côté PHP.
+
+                    if (reponseduPHP.texte) {
+                        $('p').html(reponseduPHP.texte);
+                    }
+                }
+                // 1 envoi de la requête
+                $.get('lecture.php', {
+                    id: 105
+                }, reponse, 'json');
+            }); // click
+        }); // fin du document ready
+    </script>
+</body>
+
+</html>

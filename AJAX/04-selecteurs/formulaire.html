@@ -1,0 +1,113 @@
+<!-- 
+Objectif créer des sélecteurs de produit combinales par formes et matières pour afficher les couleurs
+-->
+
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tapis</title>
+    <style>
+        .photo {
+            cursor: pointer;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <h1><span>T</span>apis</h1>
+    <form method="post">
+        <div>
+            <a><input type="checkbox" name="matiere[]" value="laine"></a>&nbsp;<strong>L</strong>aine
+            <a><input type="checkbox" name="matiere[]" value="viscose"></a>&nbsp;<strong>V</strong>iscose
+        </div>
+        <div>
+            <a><input type="checkbox" name="couleur[]" value="blanc"></a>&nbsp;<strong>B</strong>lanc
+            <a><input type="checkbox" name="couleur[]" value="gris"></a>&nbsp;<strong>G</strong>ris
+            <a><input type="checkbox" name="couleur[]" value="bleu"></a>&nbsp;<strong>B</strong>leu
+        </div>
+        <div>
+            <a><input type="checkbox" name="forme[]" value="rectangulaire"></a>&nbsp;<strong>R</strong>ectangulaire
+            <a><input type="checkbox" name="forme[]" value="rond"></a>&nbsp;<strong>R</strong>ond
+        </div>
+    </form>
+    <!-- exercice -->
+    <div id="photo"></div>
+    <!-- pour afficher la photo du tapis selectionné -->
+    <!-- cours -->
+    <div id="selection">
+    </div>
+    <!-- pour afficher la liste des tapis selectionnés -->
+    <script>
+        $(function() {
+
+            //3-fonction de traitement de la réponse
+            function reponse(reponseduPHP) {
+                $('#selection').html(reponseduPHP);
+            }
+
+            // 1- fonction pour envoyer la requête au serveur
+            function ajax() {
+                // alert('test');
+
+                let donnees = $('form').serialize(); // serialize() transforme les données du formulaire en un string formaté pour remplir le tableau $_POST côté serveur lors de l'envoi en ajax. Exemple de string : "matiere[]=laine&couleur[]=bleu" où matière et couleur correspondent aux "name" du formulaire et où laine ett bleu correspondent aux "value" du formulaire.
+
+                console.log(donnees); // pour visualiser les strings
+
+                $.post('selection.php', donnees, reponse, 'html'); // URL de destination, données envoyées, fonction de traitement de la réponse de retour (html)
+
+            }
+
+            // 2- appels de la fonction ajax() :
+            ajax(); // on appelle tout de suite la fonction dès que la page est chargée pour afficher tous les tapis
+
+            $('form').change(ajax); // si les valeurs du formulaire changent, on appelle la fonction ajax pour qu'elle demande les tapis correspondants à la sélection faite par l'internaute.
+
+        }); // fin du document ready
+    </script>
+
+    <style>
+        body {
+            background-color: lightgrey;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #577a8d;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 2.4rem;
+        }
+        
+        span {
+            color: #837d7a;
+        }
+        
+        a {
+            background-color: #dcd9ce;
+            border-radius: 25%;
+            border: 1px solid grey;
+            margin-left: 1px;
+            margin-bottom: 1px;
+            padding-right: 1px;
+            margin-right: 2px;
+            box-shadow: 2px 3px 2px 1px rgba(107, 103, 93, 0.16);
+        }
+        
+        div {
+            margin-top: 25px;
+            margin-left: 10px;
+            text-align: center;
+            box-shadow: 2px 3px 2px 1px rgba(107, 103, 93, 0.16);
+        }
+        
+        strong {
+            color: #577a8d;
+        }
+    </style>
+
+</body>
+
+</html>

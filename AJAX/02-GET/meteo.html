@@ -1,0 +1,74 @@
+<!--
+Objectif : obtenir la météo de Paris, demander au serveur puis afficher dans le navigateur sans recharger la page.
+-->
+
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Météo</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+    <style>
+        p {
+            color: rgba(255, 0, 0, 0.632);
+            border: 1px solid grey;
+            width: 250px;
+            padding-left: 20px;
+            /* margin: 0 auto; */
+            box-shadow: 2px 3px 2px 1px rgba(87, 84, 76, 0.2);
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        document.write(Date.now()); // on affiche le timestamp actuel pour vérifier que la page ne se recharge pas.
+    </script>
+
+    <h1>La météo</h1>
+    <button>Obtenir la météo</button>
+
+    <p id="resultat"></p>
+    <!-- pour afficher la réponse du serveur -->
+
+    <script>
+        $(function() {
+            $('button').click(function() {
+
+                // 2- Fontion qui traite la réponse du serveur :
+                function reponse(reponseduPHP) { // le paramètre reponseduPHP vous avez le choix du nom) reçoit la réponse du serveur directement sous forme d'objet JS.
+                    console.log(reponseduPHP); // pour vérifier que l'on reçoit bien cet objet. On voit les propriétés "meteo" et "temperature" qui correspondent aux indices du tableau $retour côté PHP.
+
+                    if (reponseduPHP.meteo && reponseduPHP.temperature) { // si il existe bien les propriétés "meteo" et "temperature" dans l'objet reponseduPHP, alors on peut les afficher.
+                        $('#resultat').html(reponseduPHP.meteo + ' et il fait ' + reponseduPHP.temperature); // on remplit le <p> avec la météo et la température.
+                    }
+
+                }
+
+                // 1- envoi de la requête vers le serveur en méthode GET avec la fonction jQuery.get() ou $.get() :
+                $.get('meteo.php', {
+                    ville: 'Paris'
+                }, reponse, 'json');
+
+                // $.get('meteo.php', 'ville=Paris', reponse, 'json'); //autre façon d'écrire sans accolades
+                /*
+                $.get() envoie la requête au serveur en méthode GET.
+                4 arguments dans cette fonction :
+                1° URL du fichier PHP qui traite la requête 
+                2° L'objet JS concernat les informations envoyées selon la syntaxe {propriete : valeur, propriete2 : valeur2 }. Cela peut être aussi un string selon la syntaxe "propriete=valeur&propriete2=valeur2".
+                3° Le nom de la fonction qui est exécutée quand on reçoit un réponse du serveur (pour info elle s'appelle une "callback").
+                4° Format de la réponse attendue : 'json' ou 'xml' ou 'text' ou 'html'.
+                */
+                //alert(); // pour tester le click
+
+            }); // click
+
+        }); // fin du document ready
+    </script>
+
+</body>
+
+</html>

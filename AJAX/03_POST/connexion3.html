@@ -1,0 +1,87 @@
+<!--
+    Exercice :
+    - créer une BDD "forum" avec une table "membre" et 3 champs :
+    id_membre INK PK AI,
+    pseudo VARCHAR(255), mdp VARCHAR (255). Vous y mettez un pseudo (tintin) et un mdp non hashé (milou).
+
+    - créer un formulaire HTML avec les champs pseudo et mdp.
+    - envoyer les données saisies dans le formulaire à connexion.php. Ce script vérifie le pseudo et le mdp en BDD selon les étapes suivantes :
+    - vérifier si les champs sont remplis, sinon envoyer au navigateur "Veuillez remplir tous les champs".
+    - puis sélectionner en BDD le pseudo et le mdp. Si la BDD répond aucune ligne, on envoie au navigateur "Erreur sur les identifiants".
+    - Sinon on envoie au navigateur "Vous êtes connecté !".
+
+-->
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forum</title>
+    <style>
+        .container {
+            background-color: #bec3cc;
+        }
+        
+        h1 {
+            box-shadow: 4px 4px 6px #aaa;
+            width: 180px;
+        }
+        
+        .alert.alert-danger {
+            color: black;
+            background-color: #d6d8d9;
+            border: 1px solid red;
+            box-shadow: 8px 8px 12px #aaa;
+        }
+        
+        .btn.btn-info:hover {
+            margin-left: 25px;
+            margin-top: 5px;
+            background-color: maroon;
+            box-shadow: 8px 8px 12px #aaa;
+            color: white;
+        }
+        
+        .btn.btn-info {
+            margin-left: 25px;
+            margin-top: 5px;
+        }
+        
+        label {
+            color: maroon;
+            font-family: fantasy;
+        }
+        
+        strong {
+            color: black;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h1 class="mt-4">Connexion</h1>
+
+
+    <form method="post" action="connexion3.php">
+
+        <div>
+            <div><label for="pseudo">Pseudo</label></div>
+            <div><input type="text" name="pseudo" id="pseudo"></div>
+        </div>
+
+        <div>
+            <div><label for="mdp">Mot de passe</label></div>
+            <div><input type="password" name="mdp" id="mdp"></div>
+        </div>
+
+        <div>
+            <input type="submit" value="Se connecter" class="btn btn-info mt-4">
+        </div>
+
+    </form>
+
+</body>
+
+</html>

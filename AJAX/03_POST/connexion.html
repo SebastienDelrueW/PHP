@@ -1,0 +1,168 @@
+<!-- 
+Exercice :
+- créer une BDD "forum" avec une table "membre" et 3 champs : id_membre INT PK AI, pseudo VARCHAR(255), mdp VARCHAR(255). Vous y mettez un pseudo (tintin) et un mdp non hashé (milou).
+
+- créer un formulaire HTML avec les champs pseudo et mdp.
+
+- envoyer les données saisies dans le formulaire à connexion.php. Ce script vérifie le pseudo et le mdp en BDD selon les étapes suivantes :
+	- vérifier si les champs sont remplis, sinon envoyer au navigateur "Veuillez remplir tous les champs".
+	- puis sélectionner en BDD le pseudo et le mdp. Si la BDD répond aucune ligne, on envoie au navigateur "Erreur sur les identifiants".
+	- Sinon on envoie au navigateur "Vous êtes connecté !".
+ -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Connexion</title>
+    <style>
+        label {
+            width: 10oui0px;
+            display: inline-block;
+        }
+        
+        h1 {
+            color: #404040;
+            border: 1px solid rgb(55, 52, 52);
+            box-shadow: 4px 6px 2px 1px rgba(87, 84, 76, 0.2);
+            width: 360px;
+            padding: 25px;
+            margin-left: 10px;
+        }
+        
+        p {
+            color: black;
+            font-family: fantasy;
+            font-size: 15px;
+        }
+        
+        #pseudo {
+            margin-top: 5px;
+        }
+        
+        input {
+            box-shadow: 4px 6px 2px 1px rgba(107, 103, 93, 0.16);
+            padding: 8px;
+            background-color: #f5eded;
+            border: 1px solid #3e3838;
+            margin-top: 5px;
+        }
+        
+        input {
+            width: 150px;
+        }
+        
+        .input:hover {
+            color: maroon;
+        }
+        
+        .input-submit:hover {
+            background-color: maroon;
+            box-shadow: 8px 8px 12px #aaa;
+            color: white;
+        }
+        
+        input#prenom {
+            padding-left: 42px;
+        }
+        
+        .bouton {
+            margin-left: 100px;
+        }
+        
+        .bouton:hover {
+            color: lightgrey;
+        }
+        
+        body {
+            background-color: #ff60005e;
+        }
+        
+        .alert.alert-danger {
+            width: 235px;
+            color: #fb0808;
+            background-color: #d6d8d9;
+            border: 1px solid #b09891;
+            margin-top: 2px;
+            padding-left: 5px;
+            box-shadow: 4px 6px 2px 1px rgba(87, 84, 76, 0.2);
+            font-size: 1.1rem;
+        }
+        
+        .btn.btn-info:hover {
+            background-color: maroon;
+            box-shadow: 8px 8px 12px #aaa;
+            color: white;
+        }
+        
+        .btn.bg-white {
+            box-shadow: 8px 8px 12px #aaa;
+        }
+        
+        label {
+            color: maroon;
+            font-family: fantasy;
+        }
+        
+        strong {
+            color: black;
+        }
+    </style>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <h1>Formulaire de Connexion</h1>
+
+    <p id="resultat"></p>
+
+    <form>
+        <div>
+            <label>Pseudo</label>
+            <input type="text" id="pseudo" placeholder="Saisissez votre pseudo">
+        </div>
+
+        <div>
+            <label>Mot de passe</label>
+            <input type="password" id="mdp" placeholder="Saisissez votre mot de passe">
+        </div>
+
+        <div>
+            <input type="submit">
+        </div>
+
+    </form>
+
+    <script>
+        $(function() {
+
+            $('form').submit(function(e) {
+
+                e.preventDefault(); // pour bloquer le formulaire
+
+                let pseudo = $('#pseudo').val(); // on récupère les valeurs des inputs
+                let mdp = $('#mdp').val();
+
+                // 2- traitement de la réponse :
+                function reponse(reponseduPHP) {
+                    console.log(reponseduPHP); // on reçoit bien la réponse
+                    $('#resultat').html(reponseduPHP);
+                }
+
+                // 1- envoi de la requête au serveur
+                $.post('connexion.php', {
+                    pseudo: pseudo,
+                    mdp: mdp
+                }, reponse, 'html');
+
+
+            }); // submit
+
+        }); // fin du document ready
+    </script>
+</body>
+
+</html>
