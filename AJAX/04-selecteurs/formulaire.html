@@ -9,12 +9,12 @@ Objectif créer des sélecteurs de produit combinales par formes et matières po
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tapis</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <style>
         .photo {
             cursor: pointer;
         }
     </style>
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -66,10 +66,49 @@ Objectif créer des sélecteurs de produit combinales par formes et matières po
 
             $('form').change(ajax); // si les valeurs du formulaire changent, on appelle la fonction ajax pour qu'elle demande les tapis correspondants à la sélection faite par l'internaute.
 
+            //----------
+            // Exercice :
+            /* 1- quand on clique sur la photo d'un tapis, vous déclenchez un alert (que vous supprimerez ensuite). Pour cela il faut ajouter un click à la balise ".photo" qui est ajoutée dynamiquement au HTML (faire une recherche internet  pour savoir comment ajouter ce click sur une balise affichée dynamiquement en jquery).
+
+            2- vous envoyez à photo.php l'id_produit stocké dans l'attribut data-id_produit du tapis cliqué.
+
+            3- Dans photo.php vous sélectionnez en BDD le champ photo du produit et envoyez au navigateur une balise <img> avec la photo.
+
+            4- Côté HTML, vous affichez la photo reçue dans le <div> #photo. */
+
+            function reponse_photo(reponseduPHP) {
+                $('#photo').html(reponseduPHP);
+
+            }
+
+            // 1- click sur une image de classe .photo :
+            $('#selection').on('click', '.photo', function() { // on ajoute un click sur les .photo descendants de #selection. Cette méthode fonctionne avec les éléments ajoutés dynamiquement.
+                // alert('oh! le beau tapis'); // pour tester le click
+
+                // 2- on envoie l'id_produit vers photo.php :
+                let attribut = $(this).attr('data-id_produit'); // this permet de cibler la balise de classe .photo sur laquelle on a cliqué précisément. Puis on sélectionne son attribut "data-id_produit" avec la méthode attr().
+
+                console.log(attribut);
+
+                $.post('photo.php', {
+                    attribut: attribut
+                }, reponse_photo, 'html'); // il faut déclarer reponse_photo
+
+            });
+
         }); // fin du document ready
     </script>
-
     <style>
+        img {
+            width: 50%;
+        }
+        
+        img.photo {
+            /* margin-right: 15px; */
+            border: 1px solid grey;
+            box-shadow: 8px 12px 8px 2px rgba(107, 103, 93, 0.16);
+        }
+        
         body {
             background-color: lightgrey;
         }
@@ -98,16 +137,14 @@ Objectif créer des sélecteurs de produit combinales par formes et matières po
         
         div {
             margin-top: 25px;
-            margin-left: 10px;
+            /* margin-left: 15px; */
             text-align: center;
-            box-shadow: 2px 3px 2px 1px rgba(107, 103, 93, 0.16);
         }
         
         strong {
             color: #577a8d;
         }
     </style>
-
 </body>
 
 </html>
