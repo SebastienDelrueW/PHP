@@ -9,7 +9,6 @@ require_once 'inc/init.php';
 
 require_once 'inc/header.php';
 ?>
-
 <style>
 p {
     margin-top: 10px;
@@ -20,7 +19,6 @@ h1.mt-4{
 	padding-left:3px;
 }
 </style>
-
 	<h1 class="mt-4">Profil</h1>
 
 	<h2>Bonjour <?php echo $_SESSION['membre']['pseudo']; ?> !</h2><!-- pour afficher le pseudo, il faut aller dans le tableau $_SESSION puis à l'indice ['membre'] puis à l'intérieur à l'indice ['pseudo'] pour accéder à la valeur du pseudo. voir le debug précédent. -->

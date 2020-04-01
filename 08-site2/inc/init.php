@@ -24,9 +24,7 @@ $contenu = ''; // on se sert de cette variable partout sur le site.
 
 // Inclusion des fonctions :
 require_once 'functions.php';
-
 ?>
-
 <style>
 body {
     background-color: #ff60005e;
@@ -57,6 +55,3 @@ strong {
     color: black;
 }
 </style>
-
-?>
-

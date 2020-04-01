@@ -1,4 +1,3 @@
-
 <style>
 .container {
     background-color: #bec3cc;
@@ -39,7 +38,6 @@ strong {
 }
 </style>
 
-
 <?php
 require_once 'inc/init.php';
 $message = '';
@@ -48,14 +46,12 @@ $message = '';
 // 2- Déconnexion de l'internaute :
 debug($_GET);
 
-
 if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') { // si existe "action" dans l'URL et que sa valeur est "deconnexion" c'est que le membre veut se déconnecter
 
 	unset($_SESSION['membre']); // on supprime l'indice "membre" de la session pour déconnecter le membre
 	$message = '<div class="alert alert-info">Vous êtes connecté.</div>';
 
 }
-
 
 // 3- Vérification si membre déjà connecté :
 if (estConnecte()) { // si membre déjà connecté alors on le renvoie vers son profil
@@ -132,25 +128,8 @@ echo $contenu;    // pour afficher les autres messages
     <div>
         <input type="submit" value="Se connecter" class="btn btn-info mt-4">
     </div>
-	
-	<div>
-		<div><label for="pseudo">Pseudo</label></div>
-		<div><input type="text" name="pseudo" id="pseudo"></div>
-	</div>
-
-	<div>
-		<div><label for="mdp">Mot de passe</label></div>
-		<div><input type="password" name="mdp" id="mdp"></div>
-	</div>
-
-	<div>
-		<input type="submit" value="Se connecter" class="btn btn-info mt-4">
-	</div>
-
 
 </form>
 
 <?php
-
 require_once 'inc/footer.php';
-

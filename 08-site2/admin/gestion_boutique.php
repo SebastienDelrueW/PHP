@@ -61,7 +61,6 @@ $contenu .= '</div>';
 require_once '../inc/header.php';
 // 2- onglets de navigation entre gestion_boutique et formulaire_produit :
 ?>
-
 <style>
 th,
 td {
@@ -85,7 +84,6 @@ h1.mt-4{
     <li><a href="gestion_boutique.php" class="nav-link active">Affichage des produits</a></li>
     <li><a href="formulaire_produit.php" class="nav-link">Formulaire produit</a></li>
 </ul>
-
 
 
 <?php
