@@ -191,7 +191,6 @@ function debug($pre)
                             <th scope="col">#</th>
                             <th scope="col">Nom</th>
                             <th scope="col">Email</th>
-
                             <th scope="col">Date de naissance</th>
                             <th scope="col">Adresse</th>
                             <th scope="col">Téléphone</th>
