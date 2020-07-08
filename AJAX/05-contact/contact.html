@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <h1>Contact</h1>
+    <p id="notice"></p>
+    <!-- pour afficher les messages -->
+    <form method="post" action="contact.php">
+        <div>
+            <input type="text" name="nom" id="nom" placeholder="Votre nom">
+        </div>
+        <div>
+            <input type="text" name="email" id="email" placeholder="Votre email">
+        </div>
+        <div>
+            <textarea name="message" id="message" placeholder="Votre message">
+            </textarea>
+        </div>
+        <div>
+            <input type="submit">
+        </div>
+    </form>
+    <script>
+        /* 
+                                                        1- Vous envoyez les informations nom, email et message en ajax à contact.php quand le formulaire a été envoyé (n'oubliez pas de bloquer l'envoi du formulaire).
+                                                        2- dans contact.php : Si les champs ne sont pas vides et que le formulaire de l'email est valide, le serveur répond "Merci pour votre message". Sinon il repond "Veuillez vérifier vos saisies."
+                                                        3- contact.html reçoit la réponse et l'affiche dans @notice.
+                                                        */
+
+        $(function() {
+            $('form').submit(function(e) {
+                e.preventDefault(); // bloque le formulaire
+
+                // 2 traitement des données
+                function reponse(reponseduPHP) {
+                    $('#notice').html(reponseduPHP);
+                }
+                // 1 envoie des données à contact.php
+                let donnees = $('form').serialize(); // pour récupérer les données formulaire sous forme de string
+                console.log(donnees);
+
+                $.post('contact.php', donnees, reponse, 'html');
+            });
+        });
+    </script>
+</body>
+
+</html>

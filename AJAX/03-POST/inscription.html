@@ -1,0 +1,83 @@
+<!--
+Objectif : pouvoir s'inscrire à la newsletter sans que la page ne se recharge.
+Le serveur vérifie que vous n'êtes pas déjà inscrit, et renvoie le message adapté en version HTML (et non pas JSON).
+
+Créer une BDD "newsletter" avec une table "abonne" et 2 champs : id_email INT PK AI, email VARCHAR(255) 
+
+-->
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>newsletter</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <h1>Inscription à la newsletter</h1>
+    <form>
+        <span id="resultat"></span>
+        <!-- pour afficher les messages -->
+        <input type="text" id="email" placeholder="Saisissez votre email">
+
+        <input type="submit" value="S'inscrire">
+    </form>
+
+    <script>
+        $(function() {
+            $('form').submit(function(e) {
+
+                e.preventDefault(); // pour bloquer l'envoi du formulaire qui rafraîchit le navigateur
+
+                let email = $('#email').val(); // on récupére la valeur saisie dans le champ #email.
+
+                // 2- Fonction de traitement de la réponse du serveur :
+                function reponse(reponseduPHP) { // ce paramètre reçoit automatiquement la réponse du serveur.
+                    console.log(reponseduPHP); // on reçoit bien du HTML du serveur
+                    if (reponseduPHP) { // si la réponse existe, on l'affiche 
+                        $('#resultat').html(reponseduPHP);
+                    }
+                }
+
+                function erreur(message) {
+                    $('#resultat').html('<span style=color: red">Une erreur est survenue.</span>');
+                }
+
+                // 1- Envoi de l'email au serveur avec une requête en POST :
+                // $.post('inscription.php', { email: email }, reponse, 'html');
+
+
+                // on envoie les données en POST. 4 arguments : URL du fichier de destination, les données envoyées sous forme d'objet ou de string selon la syntaxe "propriete=valeur", la fonction de traitement de la réponse côté JS, format de la réponse (ici on attend du HTML). $.post() est équivalent à jQuery.post().
+
+                // 3- On peut remplacer la fonction $.post() ou $.get() par $.ajax():
+                $.ajax({
+                    url: 'inscription.php', // URL de destination de la requête HTTP
+                    type: 'POST', // cela peut être 'GET'
+                    data: {
+                        email: email
+                    }, // les données envoyées au serveur sous forme d'objet ou de string
+                    dataType: 'html', // format de la réponse ('xml', 'html', 'json' ou 'text')
+                    success: reponse, // fonction qui se déclenche en cas de réception correcte de la réponse
+                    error: erreur // fonction qui se déclenche si une erreur se produit lors de la réponse
+                });
+
+
+            }); //submit
+
+        }); // fin du document ready
+
+        /* GET ou POST ?
+            GET est plus rapide que POST et peut être utilisé dans la plupart des cas.
+
+            On utilise POST quand :
+            - On ne veut pas appeler un fichier en cache mais des données nouvelles provenant du serveur (d'une BDD par exemple)
+            - on veut envoyer des grands volumes de données, POST n'étant pas limité
+            - on veut envoyer des données provenant de l'utilisateur comme des login/mdp, POST étant plus sécurisé.
+
+        */
+    </script>
+</body>
+
+</html>

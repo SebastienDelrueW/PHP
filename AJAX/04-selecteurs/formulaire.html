@@ -1,0 +1,150 @@
+<!-- 
+Objectif créer des sélecteurs de produit combinales par formes et matières pour afficher les couleurs
+-->
+
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tapis</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <style>
+        .photo {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <h1><span>T</span>apis</h1>
+    <form method="post">
+        <div>
+            <a><input type="checkbox" name="matiere[]" value="laine"></a>&nbsp;<strong>L</strong>aine
+            <a><input type="checkbox" name="matiere[]" value="viscose"></a>&nbsp;<strong>V</strong>iscose
+        </div>
+        <div>
+            <a><input type="checkbox" name="couleur[]" value="blanc"></a>&nbsp;<strong>B</strong>lanc
+            <a><input type="checkbox" name="couleur[]" value="gris"></a>&nbsp;<strong>G</strong>ris
+            <a><input type="checkbox" name="couleur[]" value="bleu"></a>&nbsp;<strong>B</strong>leu
+        </div>
+        <div>
+            <a><input type="checkbox" name="forme[]" value="rectangulaire"></a>&nbsp;<strong>R</strong>ectangulaire
+            <a><input type="checkbox" name="forme[]" value="rond"></a>&nbsp;<strong>R</strong>ond
+        </div>
+    </form>
+    <!-- exercice -->
+    <div id="photo"></div>
+    <!-- pour afficher la photo du tapis selectionné -->
+    <!-- cours -->
+    <div id="selection">
+    </div>
+    <!-- pour afficher la liste des tapis selectionnés -->
+    <script>
+        $(function() {
+
+            //3-fonction de traitement de la réponse
+            function reponse(reponseduPHP) {
+                $('#selection').html(reponseduPHP);
+            }
+
+            // 1- fonction pour envoyer la requête au serveur
+            function ajax() {
+                // alert('test');
+
+                let donnees = $('form').serialize(); // serialize() transforme les données du formulaire en un string formaté pour remplir le tableau $_POST côté serveur lors de l'envoi en ajax. Exemple de string : "matiere[]=laine&couleur[]=bleu" où matière et couleur correspondent aux "name" du formulaire et où laine ett bleu correspondent aux "value" du formulaire.
+
+                console.log(donnees); // pour visualiser les strings
+
+                $.post('selection.php', donnees, reponse, 'html'); // URL de destination, données envoyées, fonction de traitement de la réponse de retour (html)
+
+            }
+
+            // 2- appels de la fonction ajax() :
+            ajax(); // on appelle tout de suite la fonction dès que la page est chargée pour afficher tous les tapis
+
+            $('form').change(ajax); // si les valeurs du formulaire changent, on appelle la fonction ajax pour qu'elle demande les tapis correspondants à la sélection faite par l'internaute.
+
+            //----------
+            // Exercice :
+            /* 1- quand on clique sur la photo d'un tapis, vous déclenchez un alert (que vous supprimerez ensuite). Pour cela il faut ajouter un click à la balise ".photo" qui est ajoutée dynamiquement au HTML (faire une recherche internet  pour savoir comment ajouter ce click sur une balise affichée dynamiquement en jquery).
+
+            2- vous envoyez à photo.php l'id_produit stocké dans l'attribut data-id_produit du tapis cliqué.
+
+            3- Dans photo.php vous sélectionnez en BDD le champ photo du produit et envoyez au navigateur une balise <img> avec la photo.
+
+            4- Côté HTML, vous affichez la photo reçue dans le <div> #photo. */
+
+            function reponse_photo(reponseduPHP) {
+                $('#photo').html(reponseduPHP);
+
+            }
+
+            // 1- click sur une image de classe .photo :
+            $('#selection').on('click', '.photo', function() { // on ajoute un click sur les .photo descendants de #selection. Cette méthode fonctionne avec les éléments ajoutés dynamiquement.
+                // alert('oh! le beau tapis'); // pour tester le click
+
+                // 2- on envoie l'id_produit vers photo.php :
+                let attribut = $(this).attr('data-id_produit'); // this permet de cibler la balise de classe .photo sur laquelle on a cliqué précisément. Puis on sélectionne son attribut "data-id_produit" avec la méthode attr().
+
+                console.log(attribut);
+
+                $.post('photo.php', {
+                    attribut: attribut
+                }, reponse_photo, 'html'); // il faut déclarer reponse_photo
+
+            });
+
+        }); // fin du document ready
+    </script>
+    <style>
+        img {
+            width: 50%;
+        }
+        
+        img.photo {
+            /* margin-right: 15px; */
+            border: 1px solid grey;
+            box-shadow: 8px 12px 8px 2px rgba(107, 103, 93, 0.16);
+        }
+        
+        body {
+            background-color: lightgrey;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #577a8d;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 2.4rem;
+        }
+        
+        span {
+            color: #837d7a;
+        }
+        
+        a {
+            background-color: #dcd9ce;
+            border-radius: 25%;
+            border: 1px solid grey;
+            margin-left: 1px;
+            margin-bottom: 1px;
+            padding-right: 1px;
+            margin-right: 2px;
+            box-shadow: 2px 3px 2px 1px rgba(107, 103, 93, 0.16);
+        }
+        
+        div {
+            margin-top: 25px;
+            /* margin-left: 15px; */
+            text-align: center;
+        }
+        
+        strong {
+            color: #577a8d;
+        }
+    </style>
+</body>
+
+</html>
